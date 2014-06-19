@@ -66,12 +66,13 @@ capture([[0, 1, 1],
 </p>
 
 <p>
-    <strong>Precondition:</strong><br>
-    3 &le; len(matrix) &le; 10
-    matrix[0][0] == 0<br>
-    all(len(row) == len(matrix) for row in matrix)<br>
-    all(matrix[i][j] == matrix[j][i] for i in range(len(matrix)) for j in range(len(matrix)))<br>
-    all(0 &lt; matrix[i][i] &lt; 10 for i in range(len(matrix)))<br>
-    all(0 &le; matrix[i][j] &le; 1 for i in range(len(matrix)) for j in range(len(matrix)) if i != j)<br>
-
+    <strong>Precondition:</strong>
+    <pre>
+3 &le; len(<strong>matrix</strong>) &le; 10
+<strong>matrix</strong>[0][0] == 0
+all(len(row) == len(<strong>matrix</strong>) for row in <strong>matrix</strong>)
+all(<strong>matrix</strong>[i][j] == <strong>matrix</strong>[j][i] for i in range(len(<strong>matrix</strong>)) for j in range(len(<strong>matrix</strong>)))
+all(0 &lt; <strong>matrix</strong>[i][i] &lt; 10 for i in range(len(<strong>matrix</strong>)))
+all(0 &le; <strong>matrix</strong>[i][j] &le; 1 for i in range(len(<strong>matrix</strong>)) for j in range(len(<strong>matrix</strong>)) if i != j)
+</pre>
 </p>
