@@ -1,22 +1,22 @@
 <p>
-    Nicola regularly inspect local networks for security.
-    He uses the smart aggressive program which take control by computers in network.
-    This program attack all connected computers simultaneously, then use captured computers for further attacks.
-    Nicola start the virus program in the first computer and note down the time that is required for the complete network capturing.
+    Nicola regularly inspects local networks for security.
+    He uses the smart aggressive program which takes control by computers in network.
+    This program attacks all connected computers simultaneously, then use captured computers for further attacks.
+    Nicola started the virus program in the first computer and note down the time that is required for the complete network capturing.
     But maybe we can model this process and improve inspections.
 </p>
 
 <p>
     We are given the information about connections in the network and security level for each computer.
     Security level is the time (minutes) that are required for the virus to capture this machine.
-    Capturing time is not related to how many infected computers attacks this machine.
+    Capturing time is not related to how many infected computers attack this machine.
     Infection start from the 0th computer (It's already infected).
     Connections in the network are undirected. Security levels are not equal zero.
 </p>
 <p>
     Information about a network is represented as a matrix NxN size, where  <strong>N</strong> is a number of computers.
-    If i<sub>th</sub> computer connected with j<sub>th</sub> computer, then matrix[i][j]&nbsp;==&nbsp;matrix[j][i]&nbsp;==&nbsp;1, else 0.
-    Security levels are placed in the main matrix diagonal, so matrix[i][i] is the security level for the i<sub>th</sub> computer.
+    If <strong>i</strong>th computer connected with <strong>j</strong>th computer, then matrix[i][j]&nbsp;==&nbsp;matrix[j][i]&nbsp;==&nbsp;1, else 0.
+    Security levels are placed in the main matrix diagonal, so matrix[i][i] is the security level for the <strong>i</strong>th computer.
 </p>
 
 
@@ -33,7 +33,7 @@
 </p>
 
 <p>
-    <strong>Output: </strong> The total capture time as an integer.
+    <strong>Output: </strong> The total time of network capturing as an integer.
 </p>
 
 

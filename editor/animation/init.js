@@ -39,13 +39,16 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
                 return false;
             }
 
-            //YOUR FUNCTION NAME
-            var fname = 'checkio';
+            var default_in = [[0, 1, 0, 1, 0, 0],
+                      [1, 8, 1, 0, 0, 0],
+                      [0, 1, 2, 0, 0, 1],
+                      [1, 0, 0, 1, 1, 0],
+                      [0, 0, 0, 1, 3, 1],
+                      [0, 0, 1, 0, 1, 2]];
+            var checkioInput = data.in || default_in;
+            var checkioInputStr = 'capture(' + JSON.stringify(checkioInput) + ')';
 
-            var checkioInput = data.in;
-            var checkioInputStr = ' ' + fname + '(' + JSON.stringify(checkioInput)  + ')';
-
-            var failError = function(dError) {
+            var failError = function (dError) {
                 $content.find('.call').html('Fail: ' + checkioInputStr);
                 $content.find('.output').html(dError.replace(/\n/g, ","));
 
@@ -88,14 +91,12 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
                 $content.find('.call').html('Pass: ' + checkioInputStr);
                 $content.find('.answer').remove();
             }
+            //Dont change the code before it
 
-            //Your code here about test explanation animation
-            //$content.find(".explanation").html("Something text for example");
-            //
-            //
-            //
-            //
-            //
+            if (explanation) {
+                var canvas = new Network();
+                canvas.draw($content.find(".explanation")[0], explanation, checkioInput[0], checkioInput[1], checkioInput[2]);
+            }
 
 
             this_e.setAnimationHeight($content.height() + 60);
@@ -116,22 +117,89 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
 //            });
 //        });
 
-        var colorOrange4 = "#F0801A";
-        var colorOrange3 = "#FA8F00";
-        var colorOrange2 = "#FAA600";
-        var colorOrange1 = "#FABA00";
+        function Network(options) {
 
-        var colorBlue4 = "#294270";
-        var colorBlue3 = "#006CA9";
-        var colorBlue2 = "#65A1CF";
-        var colorBlue1 = "#8FC7ED";
+            var format = Raphael.format;
 
-        var colorGrey4 = "#737370";
-        var colorGrey3 = "#9D9E9E";
-        var colorGrey2 = "#C5C6C6";
-        var colorGrey1 = "#EBEDED";
+            //Colors
+            var colorOrange4 = "#F0801A";
+            var colorOrange3 = "#FA8F00";
+            var colorOrange2 = "#FAA600";
+            var colorOrange1 = "#FABA00";
 
-        var colorWhite = "#FFFFFF";
+            var colorBlue4 = "#294270";
+            var colorBlue3 = "#006CA9";
+            var colorBlue2 = "#65A1CF";
+            var colorBlue1 = "#8FC7ED";
+
+            var colorGrey4 = "#737370";
+            var colorGrey3 = "#9D9E9E";
+            var colorGrey2 = "#C5C6C6";
+            var colorGrey1 = "#EBEDED";
+
+            var colorWhite = "#FFFFFF";
+
+            options = options || {};
+
+            var R = options.radius || 160;
+            var objR = 15;
+            var w = 25;
+            var h = 10;
+
+            var x0 = 10;
+
+            var sizeX = 2 * x0 + 2 * (R + w);
+            var sizeY = 2 * x0 + 2 * (R + h);
+
+            var centerX = x0 + R + w;
+            var centerY = x0 + R + h;
+
+
+            var paper;
+            var networkObjects = {};
+
+            var attrCircle = {"stroke": colorBlue4, "stroke-width": 2, "fill": colorBlue1};
+            var attrRect = {"stroke": colorBlue4, "stroke-width": 2, "fill": colorBlue1};
+            var attrNumber = {"font-family": "Roboto, Verdana, Geneva, sans-serif", "font-size": objR * 1.5};
+            var attrName = {"font-family": "Roboto, Verdana, Geneva, sans-serif", "font-size": h};
+            var attrLine = {"stroke": colorOrange4, "stroke-width": 3};
+
+            this.draw = function(dom, matrix) {
+                paper = Raphael(dom, sizeX, sizeY);
+                var angle = Math.PI * 2 / matrix.length;
+                for (var i = 0; i < matrix.length; i++) {
+                    var obj = paper.set();
+                    var x = centerX - Math.cos(i * angle) * R;
+                    var y = centerY - Math.sin(i * angle) * R;
+                    obj.push(paper.circle(x, y, objR).attr(attrCircle));
+//                    obj.push(paper.circ(x - w, y - h, objR).attr(attrRect));
+
+
+                    if (i === 0) {
+                        obj[0].attr("fill", colorOrange1);
+                    }
+                    obj.push(paper.text(x, y, i).attr(attrNumber));
+//                    obj.push(paper.text(x, y, names[i]).attr(attrName));
+                    obj.x = x;
+                    obj.y = y;
+                    networkObjects[i] = obj;
+                }
+//                for (i = 0; i < matrix.length; i++) {
+//                    var connection = network[i].split("-");
+//                    var fr = networkObjects[connection[0]];
+//                    var to = networkObjects[connection[1]];
+//                    paper.path(
+//                        format("M{0},{1}L{2},{3}",
+//                            fr.x,
+//                            fr.y,
+//                            to.x,
+//                            to.y)).attr(attrLine).toBack();
+//
+//                }
+            }
+
+        }
+
         //Your Additional functions or objects inside scope
         //
         //
