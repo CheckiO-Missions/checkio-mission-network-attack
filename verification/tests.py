@@ -1,36 +1,54 @@
-"""
-TESTS is a dict with all you tests.
-Keys for this will be categories' names.
-Each test is dict with
-    "input" -- input data for user function
-    "answer" -- your right answer
-    "explanation" -- not necessary key, it's using for additional info in animation.
-"""
-
-
 TESTS = {
     "Basics": [
         {
-            "input": [3, 2],
-            "answer": 5,
-            "explanation": "3+2=?"
+            "input": [[0, 1, 0, 1, 0, 0],
+                      [1, 8, 1, 0, 0, 0],
+                      [0, 1, 2, 0, 0, 1],
+                      [1, 0, 0, 1, 1, 0],
+                      [0, 0, 0, 1, 3, 1],
+                      [0, 0, 1, 0, 1, 2]],
+            "answer": 8,
         },
         {
-            "input": [5, 7],
-            "answer": 12,
-            "explanation": "5+7=?"
+            "input": [[0, 1, 0, 1, 0, 0],
+                      [1, 1, 1, 0, 0, 0],
+                      [0, 1, 2, 0, 0, 1],
+                      [1, 0, 0, 1, 1, 0],
+                      [0, 0, 0, 1, 3, 1],
+                      [0, 0, 1, 0, 1, 2]],
+            "answer": 4,
+        },
+        {
+            "input": [[0, 1, 1],
+                      [1, 9, 1],
+                      [1, 1, 9]],
+            "answer": 9,
         }
     ],
     "Extra": [
         {
-            "input": [6, 3],
-            "answer": 9,
-            "explanation": "6+3=?"
+            "input": [[0, 1, 0, 1, 0, 0],
+                      [1, 8, 1, 0, 0, 0],
+                      [0, 1, 2, 0, 0, 1],
+                      [1, 0, 0, 1, 1, 0],
+                      [0, 0, 0, 1, 3, 1],
+                      [0, 0, 1, 0, 1, 2]],
+            "answer": 8,
         },
         {
-            "input": [6, 7],
-            "answer": 13,
-            "explanation": "6+7=?"
+            "input": [[0, 1, 0, 1, 0, 0],
+                      [1, 1, 1, 0, 0, 0],
+                      [0, 1, 2, 0, 0, 1],
+                      [1, 0, 0, 1, 1, 0],
+                      [0, 0, 0, 1, 3, 1],
+                      [0, 0, 1, 0, 1, 2]],
+            "answer": 4,
+        },
+        {
+            "input": [[0, 1, 1],
+                      [1, 9, 1],
+                      [1, 1, 9]],
+            "answer": 9,
         }
     ]
 }
