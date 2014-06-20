@@ -1,17 +1,19 @@
 <p>
-    Nicola regularly inspects local networks for security.
-    He uses the smart aggressive program which takes control by computers in network.
-    This program attacks all connected computers simultaneously, then use captured computers for further attacks.
-    Nicola started the virus program in the first computer and note down the time that is required for the complete network capturing.
-    But maybe we can model this process and improve inspections.
+    Nicola regularly inspects the local networks for security issues.
+    He uses a smart and aggressive program which takes control of computers on the network.
+    This program attacks all connected computers simultaneously,
+    then uses the captured computers for further attacks.
+    Nicola started the virus program in the first computer and took note of the time
+    it took to completely capture the network. We can help him improve his process by modeling and improving his inspections.
+
 </p>
 
 <p>
-    We are given the information about connections in the network and security level for each computer.
-    Security level is the time (minutes) that are required for the virus to capture this machine.
-    Capturing time is not related to how many infected computers attack this machine.
-    Infection start from the 0th computer (It's already infected).
-    Connections in the network are undirected. Security levels are not equal zero.
+    We are given information about the connections in the network and the security level for each computer.
+    Security level is the time (in minutes) that is required for the virus to capture a machine.
+    Capture time is not related to the number of infected computers attacking the machine.
+    Infection start from the 0th computer (which is already infected).
+    Connections in the network are undirected. Security levels are not equal to zero.
 </p>
 <p>
     Information about a network is represented as a matrix NxN size, where  <strong>N</strong> is a number of computers.
@@ -25,15 +27,15 @@
     <img class="for_editor_only" title="attack" src="{{MEDIA}}attack.png" alt="attack" width="380px"/>
 </p>
 <p>
-    You should calculate how much time is it taken to capture the whole network in minutes.
+    You should calculate how much time is required to capture the whole network in minutes.
         </p>
 
 <p>
-    <strong>Input: </strong> Network information as a list of list with integers.
+    <strong>Input: </strong> Network information as a list of lists with integers.
 </p>
 
 <p>
-    <strong>Output: </strong> The total time of network capturing as an integer.
+    <strong>Output: </strong> The total time of taken to capture the network as an integer.
 </p>
 
 
@@ -63,6 +65,8 @@ capture([[0, 1, 1],
 
 <p class="for_info_only">
     <strong>How it is used: </strong>
+    This concept show how to model and examine various network. It's not only computer network.
+    This is a model for disease spreading or rumour dissemination.
 </p>
 
 <p>
