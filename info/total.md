@@ -1,17 +1,17 @@
-All troops in a squad are connected with a local network. 
-Commander regularly inspects the networks for security issues.
-He uses a smart and aggressive program which takes control of computers on the network.
+All of the troops in a squad are connected with a local network. 
+The Commander regularly inspects these networks for security issues.
+He uses a smart and aggressive program which takes control of all the computers on the network.
 This program attacks all connected computers simultaneously, then uses the captured computers for further attacks.
 We can help him improve his process by modeling and improving his inspections.
 
 We are given information about the connections in the network and the security level for each computer.
-Security level is the time (in minutes) that is required for the virus to capture a machine.
+The security level is the time (in minutes) that is required for a virus to capture a machine.
 Capture time is not related to the number of infected computers attacking the machine.
-Infection start from the 0th computer (which is already infected).
-Connections in the network are undirected. Security levels are not equal to zero (except infected).
+Infection begins with the 0th computer which was already infected at the start of the test.
+Connections in the network are undirected. Security levels are not equal to zero (except for the infected).
 
-Information about a network is represented as a matrix NxN size, where  **N** is a number of computers.
-If **i**th computer connected with **j**th computer, then `matrix[i][j] == matrix[j][i] == 1`, else 0.
+Information about a network is represented as a matrix NxN in size, where  **N** is the number of computers.
+If the **i**th computer connected with **j**th computer, then `matrix[i][j] == matrix[j][i] == 1`, else 0.
 Security levels are placed in the main matrix diagonal, so matrix[i][i] is the security level for the **i**th computer.
 
 ![Attack](attack.svg)
@@ -65,9 +65,7 @@ capture([[0, 1, 1],
 ```
 **How it is used:**
 
-This concept shows how to model and examine various network configurations.
-The idea does not only apply to computer networks however,
-it can also be a model for the spread of disease or dissemination of rumors.
+This concept shows how to model and examine various network configurations, the spread of disease or dissemination of rumors. Given the right inspiration, you could even recreate a well known havking mini game from one of our favorite AAA titles.
 
 **Precondition:**
 ```python
