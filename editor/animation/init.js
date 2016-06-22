@@ -126,7 +126,7 @@ requirejs(['ext_editor_io', 'jquery_190', 'raphael_210'],
                     return;
                 }
                 var canvas = new Network();
-                canvas.draw($content.find($expl[0], checkioInput));
+                canvas.draw($expl[0], checkioInput);
                 canvas.animate(explanation, checkioInput);
                 
             },
