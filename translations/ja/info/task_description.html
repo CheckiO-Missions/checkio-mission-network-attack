@@ -1,0 +1,86 @@
+﻿<div style="text-align: center">
+    <img src="{{MEDIA}}title.png" style="max-height: 350px">
+</div>
+<p>
+    ニコラは定期的にローカルネットワークのセキュリティ問題を調査をしている。
+    彼はネットワーク上のコンピュータの制御を乗っ取る攻撃的で賢いプログラムを使用している。
+    これは乗っ取ったコンピュータをさらに攻撃に使用することで
+    接続された全てのコンピュータを同時に攻撃する。
+    ニコラは最初のコンピュータ上でこのウィルスプログラムを実行して時間の記録を録っている。
+    我々は彼の調査をモデル化によって効率化し手順を改善することができるだろう。
+
+</p>
+
+<p>
+    我々にはネットワークの接続状況と各コンピュータのセキュリティレベルについての情報が与えられる。
+    セキュリティレベルはウィルスがそのコンピュータを乗っ取るのに要する時間(単位:分)を表わしている。
+    攻撃してくるコンピュータの数は乗っ取りの時間に影響しない。
+    最初のコンピュータがウィルスに汚染された状態で調査を開始する。
+    ネットワークの接続は無向(undirected)である。 起点のコンピュータを除いてセキュリティレベルが0のものは存在しない。
+</p>
+<p>
+    ネットワークに関しての情報は NxNの正方行列で表わされる。 <strong>N</strong> はコンピュータの台数である。
+    もし <strong>i</strong>番目のコンピュータが <strong>j</strong>番目のコンピュータに接続されているならば
+    行列[i][j]&nbsp;==&nbsp;行列[j][i]&nbsp;==&nbsp;1となり、そうでなければ 0である。
+    セキュリティレベルは正方行列の主対角線上の値である。つまり行列[i][i]は<strong>i</strong>番目のコンピュータのセキュリティレベルである。
+</p>
+
+
+<p style="text-align: center;">
+    <img class="for_info_only" title="attack" src="{{MEDIA}}attack.png" alt="attack" style="max-height: 600px" />
+</p>
+<p>
+    あなたはネットワーク全体が乗っ取られるまでに時間(分)を計算しなければならない。
+        </p>
+
+<p>
+    <strong>入力: </strong> ネットワーク情報 (integer型のリストのリスト)
+</p>
+
+<p>
+    <strong>出力: </strong> ネットワーク全体が乗っ取られるまでの時間(分)(integer型)
+</p>
+
+
+
+<div class="for_info_only">
+    <p>
+        <strong>例:</strong>
+    </p>
+    <pre class="brush: python">
+capture([[0, 1, 0, 1, 0, 1],
+         [1, 8, 1, 0, 0, 0],
+         [0, 1, 2, 0, 0, 1],
+         [1, 0, 0, 1, 1, 0],
+         [0, 0, 0, 1, 3, 1],
+         [1, 0, 1, 0, 1, 2]]) == 8
+capture([[0, 1, 0, 1, 0, 1],
+         [1, 1, 1, 0, 0, 0],
+         [0, 1, 2, 0, 0, 1],
+         [1, 0, 0, 1, 1, 0],
+         [0, 0, 0, 1, 3, 1],
+         [1, 0, 1, 0, 1, 2]]) == 4
+capture([[0, 1, 1],
+         [1, 9, 1],
+         [1, 1, 9]]) == 9
+    </pre>
+</div>
+
+<p class="for_info_only">
+    <strong>どのように使われるか: </strong>
+    この概念は様々な設定のネットワークのモデル化と調査をいかに行うかを示す。
+    しかしこの考え方はコンピュータのネットワークにしか適用できないものではない。
+    病気の感染や噂の流布をモデル化することも可能である。
+</p>
+
+<p>
+    <strong>事前条件:</strong>
+    <pre>
+3 &le; len(matrix) &le; 10
+matrix[0][0] == 0
+all(len(row) == len(matrix[0]) for row in matrix)
+all(matrix[i][j] == matrix[j][i] for i in range(len(matrix)) for j in range(len(matrix)))
+all(0 &lt; matrix[i][i] &lt; 10 for i in range(1, len(matrix)))
+all(0 &le; matrix[i][j] &le; 1 for i in range(len(matrix)) for j in range(len(matrix)) if i != j)
+</pre>
+</p>
